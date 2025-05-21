@@ -11,9 +11,9 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+  // const handleLinkClick = () => {
+  //   setIsOpen(false);
+  // };
 
   return (
     <nav className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white shadow-lg md:h-[70px] md:flex md:items-center">
