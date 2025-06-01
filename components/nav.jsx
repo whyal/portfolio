@@ -28,6 +28,9 @@ export default function Navbar() {
             <a href="/" className=" hover:text-blue-500">
               Home
             </a>
+            <a href="/about" className=" hover:text-blue-500">
+              About
+            </a>
           </div>
           <div className="md:hidden">
             <button
