@@ -25,12 +25,12 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex space-x-4">
-            <a href="/" className=" hover:text-blue-500">
+            <Link href="/" className=" hover:text-blue-500">
               Home
-            </a>
-            <a href="/about" className=" hover:text-blue-500">
+            </Link>
+            <Link href="/about" className=" hover:text-blue-500">
               About
-            </a>
+            </Link>
           </div>
           <div className="md:hidden">
             <button
@@ -64,10 +64,17 @@ export default function Navbar() {
           >
             <Link
               href="/"
-              className=" hover:text-blue-500"
+              className="block hover:text-blue-500"
               onClick={handleLinkClick}
             >
               Home
+            </Link>
+            <Link
+              href="/about"
+              className="mt-3 block hover:text-blue-500"
+              onClick={handleLinkClick}
+            >
+              About
             </Link>
           </div>
         )}
