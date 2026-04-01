@@ -1,84 +1,89 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 // import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
 
-  return (
-    <nav className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white shadow-lg md:h-[70px] md:flex md:items-center">
-      <div className="container mx-auto px-4 py-2">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <Link href="/" className=" font-bold text-xl">
-              Yong Lun
-            </Link>
-          </div>
-          <div className="hidden md:flex space-x-4">
-            <Link href="/" className=" hover:text-blue-500">
-              Home
-            </Link>
-            <Link href="/about" className=" hover:text-blue-500">
-              About
-            </Link>
-          </div>
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className=" flex items-center justify-center"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        {isOpen && (
-          <div
-            className={`md:hidden absolute left-0 w-full transition-all duration-300 ease-in-out overflow-hidden shadow-lg ${
-              isOpen
-                ? "opacity-100 max-h-96 p-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                : "opacity-0 max-h-0 p-0"
-            }`}
-          >
-            <Link
-              href="/"
-              className="block hover:text-blue-500"
-              onClick={handleLinkClick}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="mt-3 block hover:text-blue-500"
-              onClick={handleLinkClick}
-            >
-              About
-            </Link>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
+    return (
+        <nav className="border-b border-stone-200 bg-stone-50 text-stone-900">
+            <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-12">
+                <div className="flex items-center justify-between gap-4">
+                    <div className="text-lg font-semibold tracking-[0.18em]">
+                        whyal
+                    </div>
+                    <div className="hidden items-center gap-6 text-sm uppercase tracking-[0.18em] md:flex">
+                        <a
+                            href="https://whyal.github.io/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition hover:text-stone-500"
+                        >
+                            Personal Site
+                        </a>
+                        <a
+                            href="https://github.com/whyal"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition hover:text-stone-500"
+                        >
+                            GitHub
+                        </a>
+                    </div>
+                    <button
+                        onClick={toggleMenu}
+                        className="flex items-center justify-center rounded-full border border-stone-200 p-2 md:hidden"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded={isOpen}
+                    >
+                        <svg
+                            className="h-5 w-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                {isOpen ? (
+                    <div className="mt-4 space-y-3 rounded-[1.5rem] border border-stone-200 bg-white p-4 text-sm uppercase tracking-[0.18em] md:hidden">
+                        <a
+                            href="https://whyal.github.io/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block transition hover:text-stone-500"
+                            onClick={handleLinkClick}
+                        >
+                            Personal Site
+                        </a>
+                        <a
+                            href="https://github.com/whyal"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block transition hover:text-stone-500"
+                            onClick={handleLinkClick}
+                        >
+                            GitHub
+                        </a>
+                    </div>
+                ) : null}
+            </div>
+        </nav>
+    );
 }
